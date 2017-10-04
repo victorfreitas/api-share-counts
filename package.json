@@ -1,0 +1,19 @@
+{
+  "name": "shares",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.5.0",
+    "consign": "^0.1.6",
+    "express": "^4.15.4",
+    "mongodb": "^2.2.31",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
