@@ -8,15 +8,15 @@ var Instance = function() {
 	this._db = this._app.Config.mongodb;
 };
 
-Instance.prototype.replace = function(shares, callback) {
+Instance.prototype.replace = function(data, collectionName, callback) {
 	this._db().open(function(error, client) {
-		client.collection( 'counts', function(error, collection) {
+		client.collection( collectionName, function(error, collection) {
 			collection.replaceOne(
 				{
-					href : shares.href
+					href : data.href
 				},
 				{
-					$set : shares
+					$set : data
 				},
 				{
 					upsert: true
@@ -37,6 +37,18 @@ Instance.prototype.find = function(search, callback) {
 
 		client.close();
 	});
+};
+
+Instance.prototype.addShares = function(sharesData, callback) {
+	this.replace( sharesData, 'counts', callback );
+};
+
+Instance.prototype.addDomain = function(data, callback) {
+	this.replace( data, 'domains', callback );
+};
+
+Instance.prototype.findShares = function(data, callback) {
+	this.find( data, 'counts', callback );
 };
 
 module.exports = function( app ) {

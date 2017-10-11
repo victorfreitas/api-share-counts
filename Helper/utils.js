@@ -26,7 +26,7 @@ module.exports = function(app) {
 				throw new app.Exceptions.Url( 'Invalid id param value', uri );
 			}
 
-			var domain = this.parseUrl( uri ).host;
+			var domain = this.parseUrl( uri ).host.replace( 'www.', '' );
 
 			if ( !validDomains[ domain ] ) {
 				throw new app.Exceptions.Url( 'Domain ' + domain + ' not authorised.', uri );

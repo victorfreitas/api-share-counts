@@ -55,14 +55,14 @@ Counts.prototype.requests = function() {
 	var _self = this;
 
 	this.app.Controller.shares( this.url.href, function(error, data) {
-		var dataShares = _self.parseData( data );
+		var sharesData = _self.parseData( data );
 
-		if ( !dataShares.shares.total ) {
+		if ( !sharesData.shares.total ) {
 			_self.res.json( data );
 			return;
 		}
 
-		_self.Share.replace( dataShares, function(error, result) {
+		_self.Share.addShares( sharesData, function(error, result) {
 			_self.res.json( data );
 		});
 	});
