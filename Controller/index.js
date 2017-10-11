@@ -70,11 +70,12 @@ Counts.prototype.requests = function() {
 
 Counts.prototype.parseData = function(data) {
 	var response = {
-		domain   : this.url.host,
-		pathname : this.url.pathname,
-		homeUrl  : this.url.href.replace( this.url.pathname, '/' ),
-		href     : this.url.href,
-		shares   : data
+		createdAt : new Date(),
+		domain    : this.url.host,
+		pathname  : this.url.pathname,
+		homeUrl   : this.url.href.replace( this.url.pathname, '/' ),
+		href      : this.url.href,
+		shares    : data
 	};
 
 	response.shares.total = this.app.Helper.utils.parseTotalShares( data );

@@ -11,8 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.5.0",
-    "consign": "^0.1.6",
-    "express": "^4.15.4",
+    "consign": "^1.0.3",
+    "express": "^4.16.2",
     "mongodb": "^2.2.31",
     "xmlhttprequest": "^1.8.0"
   }
