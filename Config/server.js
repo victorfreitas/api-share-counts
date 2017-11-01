@@ -2,8 +2,11 @@
 
 var express = require( 'express' )
   , consign = require( 'consign' )
+  , helmet  = require( 'helmet' )
   , app     = express()
 ;
+
+app.use( helmet() );
 
 consign()
     .include( 'Exceptions' )
